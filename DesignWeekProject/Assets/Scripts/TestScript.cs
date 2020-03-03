@@ -19,7 +19,7 @@ public class TestScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
         {
             GameObject newBullet = pooler.NewObject(bullet, this.transform);
-            newBullet.GetComponent<Projectile>().InitializeBullet(Vector3.up * 10f);
+            newBullet.GetComponent<Projectile>().InitializeBulletVelocity(Vector3.up * 10f);
             Debug.Log(bullet.GetComponent<Rigidbody2D>());
         }
     }
