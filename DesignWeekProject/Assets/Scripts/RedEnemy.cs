@@ -5,6 +5,7 @@ using UnityEngine;
 public class RedEnemy : MonoBehaviour
 {
     public string type = "red";
+
     void Start()
     {
         

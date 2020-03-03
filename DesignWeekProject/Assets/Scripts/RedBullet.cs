@@ -17,9 +17,14 @@ public class RedBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<RedEnemy>() != null)
+        if (collision.gameObject.GetComponent<RedEnemy>() )
         {
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if (collision.gameObject.GetComponent<BlueEnemy>() || collision.gameObject.GetComponent<PurpleEnemy>())
+        {
+            Destroy(this.gameObject);
         }
     }
 
