@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RebPlayercontrol : MonoBehaviour
+public class RedPlayercontrol : MonoBehaviour
 {
     public float planespeed = 10.0f;
     public GameObject bulletPrefab;
