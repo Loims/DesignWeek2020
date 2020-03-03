@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class RebPlayercontrol : MonoBehaviour
 {
-    public float speed = 10.0f;
-    public GameObject bullet;
-    public float velocity = 500;
+    public float planespeed = 10.0f;
+    public GameObject bulletPrefab;
+    public float bulletVelocity = 500;
     private Transform plane;
+    private GameObject Bullet;
     void Start()
     {
         plane = GetComponent<Transform>();
@@ -17,22 +18,21 @@ public class RebPlayercontrol : MonoBehaviour
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
-        //float y = Input.GetAxis("vertical");
+        float y = Input.GetAxis("Vertical");
         // planeRotation.rotation = Quaternion.Euler(new Vector3(0, 0, x));
         // planeRotation.eulerAngles -= new Vector3(0, 0, x);
-        plane.transform.position += new Vector3(x, 0, 0) * Time.deltaTime * speed;
-        if(Input.GetButton("Fire1"))
+        plane.transform.position += new Vector3(x, y, 0) * Time.deltaTime * planespeed;
+        if(Input.GetButtonDown("Fire1"))
         {
-            GameObject Bullet = Instantiate(bullet, plane.position, plane.rotation);
-            Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * velocity);
+            Fire();
         }
-
+        Destroy(Bullet, 1);
     }
     private void Fire()
     {
-       GameObject Bullet= Instantiate(bullet, plane.position, plane.rotation);
-        Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up*velocity);
-        Destroy(Bullet, 5);
+       Bullet= Instantiate(bulletPrefab, plane.position, plane.rotation);
+        Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up* bulletVelocity);
+        
     }
     
 }

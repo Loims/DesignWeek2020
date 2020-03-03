@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BluePlayercontrol : MonoBehaviour
 {
-    public GameObject bullet;
-    public float velocity = 500;
-    public float speed = 10.0f;
+    public GameObject bulletPrefab;
+    public float bulletVelocity = 500;
+    public float planeSpeed = 10.0f;
     private Transform plane;
+    private GameObject Bullet;
     void Start()
     {
         plane = GetComponent<Transform>();
@@ -17,16 +18,19 @@ public class BluePlayercontrol : MonoBehaviour
     void Update()
     {
         float x = Input.GetAxis("Horizontal2");
-        plane.transform.position += new Vector3(x, 0,0)*Time.deltaTime*speed;
-        if (Input.GetButton("Jump"))
+        float y = Input.GetAxis("Vertical2");
+        plane.transform.position += new Vector3(x,y,0)*Time.deltaTime* planeSpeed;
+        
+        if (Input.GetButtonDown("Jump"))
         {
-            GameObject Bullet = Instantiate(bullet, plane.position, plane.rotation);
-            Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * velocity);
+            Fire();
         }
+        Destroy(Bullet, 1);
     }
     private void Fire()
     {
-        GameObject Bullet = Instantiate(bullet, plane.position, plane.rotation);
-        Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * velocity);
+        Bullet = Instantiate(bulletPrefab, plane.position, plane.rotation);
+        Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletVelocity);
+        
     }
 }

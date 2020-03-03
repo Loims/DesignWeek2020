@@ -17,9 +17,14 @@ public class BlueBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<BlueEnemy>() != null)
+        if (collision.gameObject.GetComponent<BlueEnemy>() )
         {
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if(collision.gameObject.GetComponent<RedEnemy>() ||collision.gameObject.GetComponent<PurpleEnemy>())
+        {
+            Destroy(this.gameObject);
         }
     }
 }
