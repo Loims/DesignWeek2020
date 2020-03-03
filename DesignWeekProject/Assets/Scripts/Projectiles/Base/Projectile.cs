@@ -14,20 +14,20 @@ public class Projectile : MonoBehaviour
 
     #region Variables
     [Header("Color Materials (Test Only)")]
-    [SerializeField] private Material redMat;
-    [SerializeField] private Material blueMat;
-    [SerializeField] private Material purpleMat;
+    [SerializeField] protected Material redMat;
+    [SerializeField] protected Material blueMat;
+    [SerializeField] protected Material purpleMat;
     
     [Space]
     [Header("Object Pooler")]
-    [SerializeField] private ObjectPooler pooler;
+    [SerializeField] protected ObjectPooler pooler;
 
     [Space]
     [Header("Object Information")]
 
-    [SerializeField] private Rigidbody2D rb2d;
-    [SerializeField] private float lifetime = 5f;
-    [SerializeField] private Color projectileColor;
+    [SerializeField] protected Rigidbody2D rb2d;
+    [SerializeField] protected float lifetime = 5f;
+    [SerializeField] protected Color projectileColor;
     #endregion
 
     private void Awake()
@@ -40,7 +40,7 @@ public class Projectile : MonoBehaviour
         purpleMat = Resources.Load<Material>("Purple");
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         StartCoroutine(BulletLifeTime(lifetime));
         if(projectileColor == Color.NULL)
@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         projectileColor = Color.NULL;
         StopAllCoroutines();
@@ -107,8 +107,10 @@ public class Projectile : MonoBehaviour
         pooler.ReturnToPool(this.gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        //Logic for damaging player. Destroy bullet regardless of what is hit
+        Debug.Log("HIT");
+        pooler.ReturnToPool(this.gameObject);
     }
 }
