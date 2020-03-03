@@ -12,7 +12,7 @@ public class SpawnPlayers : MonoBehaviour
     {
         Instantiate(circle, new Vector3(-3, 0, 0), Quaternion.identity);
 
-        if (OnePlayerStart.playerCount == 2)
+        if (PlayerStart.playerCount == 2)
         {
             Instantiate(square, new Vector3(3, 0, 0), Quaternion.identity);
         }
