@@ -27,14 +27,14 @@ public class CanvasMove : MonoBehaviour
 
     void MoveUp()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y + 350, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 7.5f, transform.position.z);
         movedCanvasUp = true;
         movedCanvasDown = false;
     }
 
     void MoveDown()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y - 350, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y - 7.5f, transform.position.z);
         movedCanvasDown = true;
         movedCanvasUp = false;
     }
