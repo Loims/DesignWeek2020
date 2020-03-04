@@ -6,7 +6,7 @@ public class TestScript : MonoBehaviour
 {
     private ObjectPooler pooler;
 
-    public GameObject bullet;
+    public GameObject AI;
 
     private void Start()
     {
@@ -18,9 +18,7 @@ public class TestScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            GameObject newBullet = pooler.NewObject(bullet, this.transform);
-            newBullet.GetComponent<Projectile>().InitializeBulletVelocity(Vector3.up * 10f);
-            Debug.Log(bullet.GetComponent<Rigidbody2D>());
+            GameObject newAI = pooler.NewObject(AI, this.transform);
         }
     }
 }

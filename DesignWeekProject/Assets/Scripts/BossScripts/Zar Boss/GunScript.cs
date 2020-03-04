@@ -32,7 +32,7 @@ public class GunScript : MonoBehaviour
             color = states.color;
             if (!coroutineStarted)
             {
-                StartCoroutine(ShootCoroutine(0.05f));
+                StartCoroutine(ShootCoroutine(0.1f));
                 coroutineStarted = true;
             }
         }
