@@ -10,11 +10,15 @@ public class SpawnPlayers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(circle, new Vector3(-3, 0, 0), Quaternion.identity);
+        if (PlayerStart.playerCount == 1)
+        {
+            Instantiate(circle, new Vector3(0, 0, 0), Quaternion.identity);
+        }
 
         if (PlayerStart.playerCount == 2)
         {
             Instantiate(square, new Vector3(3, 0, 0), Quaternion.identity);
+            Instantiate(circle, new Vector3(-3, 0, 0), Quaternion.identity);
         }
     }
 }
