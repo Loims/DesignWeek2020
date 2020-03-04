@@ -109,8 +109,24 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Logic for damaging player. Destroy bullet regardless of what is hit
-        Debug.Log("HIT");
-        pooler.ReturnToPool(this.gameObject);
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            if(collision.gameObject.tag == "Red")
+            {
+                if(projectileColor == Color.RED)
+                {
+                    //Damage logic
+                    pooler.ReturnToPool(this.gameObject);
+                }
+            }
+            else if(collision.gameObject.tag == "Blue")
+            {
+                if(projectileColor == Color.BLUE)
+                {
+                    //Damage logic
+                    pooler.ReturnToPool(this.gameObject);
+                }
+            }
+        }
     }
 }
