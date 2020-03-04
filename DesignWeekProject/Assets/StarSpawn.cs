@@ -26,7 +26,7 @@ public class StarSpawn : MonoBehaviour
     {
         if (timer > timerLimit)
         {
-            Instantiate(shootingStar, new Vector3(0, 5.5f, 3), Quaternion.Euler(new Vector3(0, 0, 55)));
+            Instantiate(shootingStar, new Vector3(0, 6.5f, 3), Quaternion.Euler(new Vector3(0, 0, 55)));
             timer = 0;
         }
     }
