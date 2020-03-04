@@ -354,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451848618}
   - component: {fileID: 451848619}
+  - component: {fileID: 451848620}
   m_Layer: 0
   m_Name: Gun7
   m_TagString: Untagged
@@ -382,7 +383,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451848617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -391,6 +392,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &451848620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451848617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3413480c5a3a45b3f811b5a643ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooler: {fileID: 0}
+  projectile: {fileID: 0}
+  states: {fileID: 0}
+  color: 0
+  isFiring: 0
+  coroutineStarted: 0
 --- !u!1 &707639925
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115489433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.84, y: -3.78, z: 0}
+  m_LocalPosition: {x: 2.67, y: -1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1143977104}
@@ -835,6 +854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247181821}
   - component: {fileID: 1247181822}
+  - component: {fileID: 1247181823}
   m_Layer: 0
   m_Name: Gun5
   m_TagString: Untagged
@@ -863,7 +883,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247181820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -872,6 +892,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &1247181823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247181820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3413480c5a3a45b3f811b5a643ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooler: {fileID: 0}
+  projectile: {fileID: 0}
+  states: {fileID: 0}
+  color: 0
+  isFiring: 0
+  coroutineStarted: 0
 --- !u!1 &1544178172
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544178173}
   - component: {fileID: 1544178174}
+  - component: {fileID: 1544178175}
   m_Layer: 0
   m_Name: Gun3
   m_TagString: Untagged
@@ -910,7 +949,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544178172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -919,6 +958,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &1544178175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544178172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3413480c5a3a45b3f811b5a643ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooler: {fileID: 0}
+  projectile: {fileID: 0}
+  states: {fileID: 0}
+  color: 0
+  isFiring: 0
+  coroutineStarted: 0
 --- !u!1 &1619245928
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +1000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619245928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.06, y: -3.78, z: 0}
+  m_LocalPosition: {x: -3.61, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1143977104}
@@ -1120,6 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666368373}
   - component: {fileID: 1666368374}
+  - component: {fileID: 1666368375}
   m_Layer: 0
   m_Name: Gun1
   m_TagString: Untagged
@@ -1148,7 +1206,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666368372}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1157,6 +1215,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &1666368375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666368372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b3413480c5a3a45b3f811b5a643ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooler: {fileID: 0}
+  projectile: {fileID: 0}
+  states: {fileID: 0}
+  color: 0
+  isFiring: 0
+  coroutineStarted: 0
 --- !u!1 &1713639918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,11 +1477,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  corners:
+  gunGimbal: {fileID: 0}
+  cornerParent: {fileID: 0}
+  points:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  cornerIndex: 0
+  m_spriteRenderer: {fileID: 0}
+  red: {r: 0, g: 0, b: 0, a: 0}
+  blue: {r: 0, g: 0, b: 0, a: 0}
+  purple: {r: 0, g: 0, b: 0, a: 0}
+  color: 0
+  speed: 10
+  cornerIncrement: 0
+  isShooting: 0
 --- !u!4 &718775201475221811
 Transform:
   m_ObjectHideFlags: 0
@@ -1414,7 +1501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718775201475221809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 2.56, z: 0}
+  m_LocalPosition: {x: 0.27, y: 8.65, z: 0}
   m_LocalScale: {x: 0.58749, y: 0.58749, z: 0.58749}
   m_Children:
   - {fileID: 1848797926}

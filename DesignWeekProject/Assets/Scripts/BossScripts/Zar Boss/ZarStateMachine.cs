@@ -54,27 +54,26 @@ public class ZarStateMachine : MonoBehaviour
                     states.Spawn();
                     break;
                 }
-                //    case ZarStates.ZStates.COLORIZE:
-                //        {
-                //            states.Chase(target);
-                //            break;
-                //        }
-                //    case ZarStates.ZStates.MOVE:
-                //        {
-                //            states.Plant();
-                //            break;
-                //        }
-                //    case ZarStates.ZStates.ATTACK:
-                //        {
-                //            states.Uproot();
-                //            break;
-                //        }
-                //    case ZarStates.ZStates.RETREAT:
-                //        {
-                //            states.Attack();
-                //            break;
-                //        }
-                //}
+            case ZarStates.ZStates.COLORIZE:
+                {
+                    states.Colorize();
+                    break;
+                }
+            case ZarStates.ZStates.MOVE:
+                {
+                    states.Move();
+                    break;
+                }
+            case ZarStates.ZStates.ATTACK:
+                {
+                    states.Attack();
+                    break;
+                }
+            case ZarStates.ZStates.RETREAT:
+                {
+                    states.Retreat();
+                    break;
+                }
         }
     }
 
