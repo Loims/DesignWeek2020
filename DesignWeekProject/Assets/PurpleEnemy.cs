@@ -5,7 +5,7 @@ using UnityEngine;
 public class PurpleEnemy : MonoBehaviour
 {
     private float health = 100.0f;
-    public float damage = 10.0f;
+    public float damage = 50.0f;
     void Start()
     {
         
