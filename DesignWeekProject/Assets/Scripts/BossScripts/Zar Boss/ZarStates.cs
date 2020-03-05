@@ -12,7 +12,8 @@ public class ZarStates : MonoBehaviour
         COLORIZE,
         MOVE,
         ATTACK,
-        RETREAT
+        RETREAT,
+        DIE
     }
 
     public ZStates currentState;
@@ -26,6 +27,7 @@ public class ZarStates : MonoBehaviour
     [SerializeField] private Sprite red;
     [SerializeField] private Sprite blue;
     [SerializeField] private Sprite purple;
+    [SerializeField] private Sprite white;
 
 
     public Projectile.Color color;
@@ -33,6 +35,7 @@ public class ZarStates : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private int cornerIncrement = 0;
     public bool isShooting = false;
+    public bool invuln = true;
     #endregion
 
     private void OnEnable()
@@ -40,6 +43,7 @@ public class ZarStates : MonoBehaviour
         red = Resources.Load<Sprite>("boss_red");
         blue = Resources.Load<Sprite>("boss_blue");
         purple = Resources.Load<Sprite>("boss_purple");
+        white = Resources.Load<Sprite>("boss_white");
 
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_spriteRenderer.sprite = purple;
@@ -77,6 +81,10 @@ public class ZarStates : MonoBehaviour
 
     public void Move()
     {
+        if(invuln)
+        {
+            invuln = false;
+        }
         Vector3 vectorToCorner = (points[cornerIndex].transform.position - transform.position);
         float distanceToCorner = vectorToCorner.magnitude;
         Debug.DrawLine(transform.position, transform.position + vectorToCorner, Color.green);
@@ -116,6 +124,11 @@ public class ZarStates : MonoBehaviour
             cornerIncrement = 0;
             ChangeState(ZStates.COLORIZE);
         }
+    }
+
+    public void Die()
+    {
+        StopAllCoroutines();
     }
 
     private void GetNewCornerIndex()
@@ -158,6 +171,31 @@ public class ZarStates : MonoBehaviour
         {
             GetNewCornerIndex();
             ChangeState(ZStates.MOVE);
+        }
+        yield break;
+    }
+
+    public void StartFlash()
+    {
+        StartCoroutine(Flash(0.1f));
+    }
+
+    private IEnumerator Flash(float waitTime)
+    {
+        m_spriteRenderer.sprite = white;
+        yield return new WaitForSeconds(waitTime);
+
+        if (color == Projectile.Color.RED)
+        {
+            m_spriteRenderer.sprite = red;
+        }
+        else if (color == Projectile.Color.BLUE)
+        {
+            m_spriteRenderer.sprite = blue;
+        }
+        else if (color == Projectile.Color.PURPLE)
+        {
+            m_spriteRenderer.sprite = purple;
         }
         yield break;
     }

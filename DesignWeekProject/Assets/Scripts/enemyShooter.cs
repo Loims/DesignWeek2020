@@ -7,6 +7,8 @@ public class enemyShooter : MonoBehaviour
     ObjectPooler pooler;
 
     public GameObject projectilePrefab;
+    public GameObject explosion;
+    public GameObject scrapMetal;
     public Transform gun;
     private bool canShoot = true;
     [SerializeField]
@@ -67,6 +69,14 @@ public class enemyShooter : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(bulletSpeed);
         canShoot = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameObject explosionClone = Instantiate(explosion, this.transform.position, Quaternion.identity);
+        Destroy(explosionClone, 2f);
+        GameObject scrapMetalClone = Instantiate(scrapMetal, this.transform.position, Quaternion.identity);
+        Destroy(scrapMetalClone, 0.7f);
     }
 
 

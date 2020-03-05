@@ -120,9 +120,9 @@ MonoBehaviour:
   - {fileID: 0}
   cornerIndex: 0
   m_spriteRenderer: {fileID: 0}
-  red: {r: 0, g: 0, b: 0, a: 0}
-  blue: {r: 0, g: 0, b: 0, a: 0}
-  purple: {r: 0, g: 0, b: 0, a: 0}
+  red: {fileID: 0}
+  blue: {fileID: 0}
+  purple: {fileID: 0}
   color: 0
   speed: 10
   cornerIncrement: 0
