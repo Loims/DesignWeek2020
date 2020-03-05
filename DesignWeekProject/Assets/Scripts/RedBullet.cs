@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RedBullet : MonoBehaviour
 {
+    [SerializeField] private int score = 100;
     public string targetType="red";
     void Start()
     {
@@ -21,6 +22,7 @@ public class RedBullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            Player.instance.AddPlayer1Score(score);
         }
         else if (collision.gameObject.GetComponent<BlueEnemy>() || collision.gameObject.GetComponent<PurpleEnemy>())
         {

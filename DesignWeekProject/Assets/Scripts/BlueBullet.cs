@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlueBullet : MonoBehaviour
 {
+    [SerializeField] private int score = 100;
     public string targetType = "blue";
     void Start()
     {
@@ -21,7 +22,7 @@ public class BlueBullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
-            Player.instance.AddPlayer2Score(10);
+            Player.instance.AddPlayer2Score(score);
             Debug.Log(Player.instance.Showplayer2Score());
         }
         else if(collision.gameObject.GetComponent<RedEnemy>() ||collision.gameObject.GetComponent<PurpleEnemy>())

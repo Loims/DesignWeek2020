@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
     public static float player1Health = 100;
     public static float player2Health = 100;
     public static int player1Score = 0;
