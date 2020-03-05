@@ -95,6 +95,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public void AssignSize(Vector3 scale)
+    {
+        transform.localScale = scale;
+    }
+
     /*<summary>
      * Lifetime coroutine. When the timer reaches 0,
      * the projectile is returned to the object pool.
