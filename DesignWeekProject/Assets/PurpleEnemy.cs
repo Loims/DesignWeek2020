@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PurpleEnemy : MonoBehaviour
 {
+    public GameObject Explosion;
     private float health = 100.0f;
-    public float damage = 50.0f;
+    public float damage = 10.0f;
+    private bool isMoving = true;
     void Start()
     {
         
@@ -22,5 +24,10 @@ public class PurpleEnemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         health -= damage;
+        //mask sprite for damage
+    }
+    private void OnDestroy()
+    {
+        Instantiate(Explosion, this.transform.position, this.transform.rotation);
     }
 }
