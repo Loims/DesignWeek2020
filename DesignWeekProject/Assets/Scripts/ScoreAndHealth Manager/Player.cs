@@ -31,7 +31,14 @@ public class Player : MonoBehaviour
     {
         
     }
-
+    public float ShowPlayer1Health()
+    {
+        return player1Health;
+    }
+    public float ShowPlayer2Health()
+    {
+        return player2Health;
+    }
     public void DecreasePlayer1Health(float attackValue)
     {
         player1Health -=  attackValue;
@@ -59,5 +66,9 @@ public class Player : MonoBehaviour
     public string ShowTotalScore()
     {
         return (player1Score + player2Score).ToString();
+    }
+    public int ShowTotalScoreInt()
+    {
+        return (player1Score + player2Score);
     }
 }

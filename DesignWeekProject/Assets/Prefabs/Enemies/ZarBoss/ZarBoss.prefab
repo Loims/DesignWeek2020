@@ -123,10 +123,12 @@ MonoBehaviour:
   red: {fileID: 0}
   blue: {fileID: 0}
   purple: {fileID: 0}
+  white: {fileID: 0}
   color: 0
-  speed: 10
+  speed: 20
   cornerIncrement: 0
   isShooting: 0
+  invuln: 1
 --- !u!114 &422109354
 MonoBehaviour:
   m_ObjectHideFlags: 0
