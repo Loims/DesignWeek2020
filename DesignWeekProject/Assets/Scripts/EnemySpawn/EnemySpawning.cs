@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawning : MonoBehaviour
 {
     float time = 0;
-    public float sleepTime = 0;
+    float sleepTime = 0;
     public float sleepTimeLimit = 2.0f;
     [SerializeField]public float timeLimit = 0.5f;
     public GameObject[] enemy;

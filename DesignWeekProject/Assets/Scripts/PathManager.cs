@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    private Transform[] controlpoints;
+    [System.NonSerialized]public Transform[] controlpoints;
     int a = 0;
 
     [System.NonSerialized] public Vector2 p0, p1, p2, p3;

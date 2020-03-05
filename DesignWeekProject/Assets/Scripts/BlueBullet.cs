@@ -21,6 +21,8 @@ public class BlueBullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            Player.instance.AddPlayer2Score(10);
+            Debug.Log(Player.instance.Showplayer2Score());
         }
         else if(collision.gameObject.GetComponent<RedEnemy>() ||collision.gameObject.GetComponent<PurpleEnemy>())
         {

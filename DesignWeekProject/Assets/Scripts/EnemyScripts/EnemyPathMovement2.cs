@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPathMovement : MonoBehaviour
+public class EnemyPathMovement2 : MonoBehaviour
 {
     Vector2 p0, p1, p2, p3;
     private float tParam;
     private Vector2 enemyPositin;
     [SerializeField] private float speedModifier = 0.3f;
     private bool coroutineAllowed;
-    
+
     void Start()
     {
-       GameObject rand = GameObject.Find("RandomcurvePoints");
+        GameObject rand = GameObject.Find("RandomCurvePoints2");
         if (rand != null)
         {
             p0 = rand.GetComponent<PathManager>().p0;
@@ -30,9 +30,9 @@ public class EnemyPathMovement : MonoBehaviour
     void Update()
     {
         if (coroutineAllowed)
-            StartCoroutine(GoByTheRoute());
+            StartCoroutine(GoByRoute());
     }
-    private IEnumerator GoByTheRoute()
+    private IEnumerator GoByRoute()
     {
         coroutineAllowed = false;
 
@@ -47,10 +47,9 @@ public class EnemyPathMovement : MonoBehaviour
             transform.position = enemyPositin;
             yield return new WaitForEndOfFrame();
         }
-        if(this.gameObject!=null)
+        if (this.gameObject != null)
         {
             Destroy(this.gameObject);
         }
     }
-
 }
