@@ -42,6 +42,7 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnEnable()
     {
+        transform.localScale = new Vector3(0.185009f, 0.185009f, 0.185009f);
         StartCoroutine(BulletLifeTime(lifetime));
         if(projectileColor == Color.NULL)
         {
@@ -93,6 +94,11 @@ public class Projectile : MonoBehaviour
         {
             renderer.material = purpleMat;
         }
+    }
+
+    public void AssignSize(float scaleMultiplier)
+    {
+        transform.localScale *= scaleMultiplier;
     }
 
     /*<summary>

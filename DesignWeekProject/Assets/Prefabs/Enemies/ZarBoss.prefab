@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6256267743268906382}
   - component: {fileID: 6256267743268906378}
   - component: {fileID: 6256267743268906380}
+  - component: {fileID: 422109354}
   m_Layer: 0
   m_Name: ZarBoss
   m_TagString: Purple
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6256267743268906383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.27, y: 8.65, z: 0}
-  m_LocalScale: {x: 0.58749, y: 0.58749, z: 0.58749}
+  m_LocalScale: {x: 4.1645994, y: 4.1645994, z: 4.1645994}
   m_Children:
   - {fileID: 6857610459294406232}
   m_Father: {fileID: 0}
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 348fb240641e7f04c9373af29572e7eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff813db010953b24da4bcae30e6c22e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,6 +127,21 @@ MonoBehaviour:
   speed: 10
   cornerIncrement: 0
   isShooting: 0
+--- !u!114 &422109354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256267743268906383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1706df12a6e7f946b8da1b5e9b8c7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 1
+  ghost: {fileID: 7453054440806905738, guid: 0ab42cebc8570204795675700baf804a, type: 3}
+  makeGhost: 1
 --- !u!1 &6857610458826475330
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +154,7 @@ GameObject:
   - component: {fileID: 6857610458826475328}
   - component: {fileID: 6857610458826475329}
   m_Layer: 0
-  m_Name: Gun5
+  m_Name: Gun3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +220,7 @@ GameObject:
   - component: {fileID: 6857610458988754240}
   - component: {fileID: 6857610458988754241}
   m_Layer: 0
-  m_Name: Gun3
+  m_Name: Gun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,7 +386,7 @@ GameObject:
   - component: {fileID: 6857610460177618197}
   - component: {fileID: 6857610460177618194}
   m_Layer: 0
-  m_Name: Gun7
+  m_Name: Gun4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
