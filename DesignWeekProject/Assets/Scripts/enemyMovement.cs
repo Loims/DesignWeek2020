@@ -6,6 +6,8 @@ public class enemyMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Enemy;
+    public GameObject explosion;
+    public GameObject scrapMetal;
 
     public Vector3 StartPos;
     public Vector3 ControlPoint;
@@ -28,12 +30,9 @@ public class enemyMovement : MonoBehaviour
             Vector3 m1 = Vector3.Lerp(StartPos, ControlPoint, count);
             Vector3 m2 = Vector3.Lerp(ControlPoint, EndPos, count);
             Enemy.transform.position = Vector3.Lerp(m1, m2, count);
-            
+
         }
 
 
     }
-
-  
-
-    }
+}

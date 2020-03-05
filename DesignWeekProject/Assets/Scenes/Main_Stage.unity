@@ -271,6 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 77055676}
   force: -4.29
   bulletSpeed: 0.12
@@ -444,12 +446,12 @@ PrefabInstance:
     - target: {fileID: 8868714907112684541, guid: f39faa08ada332048b2684dba6f6c2c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.702588
+      value: -7.07
       objectReference: {fileID: 0}
     - target: {fileID: 8868714907112684541, guid: f39faa08ada332048b2684dba6f6c2c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2743664
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: 8868714907112684541, guid: f39faa08ada332048b2684dba6f6c2c4,
         type: 3}
@@ -894,6 +896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 786815927}
   force: -4.29
   bulletSpeed: 0.12
@@ -1823,6 +1827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 1637300646}
   force: -4.29
   bulletSpeed: 0.12
