@@ -11,7 +11,7 @@ public class StarSpawn : MonoBehaviour
     void Start()
     {
         timer = 0;
-        timerLimit = 799;
+        timerLimit = 499;
     }
 
     void FixedUpdate()
