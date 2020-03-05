@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6567564428989303180}
   - component: {fileID: -1931364349225438803}
   - component: {fileID: -8881855399718416399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RedBullet
-  m_TagString: Untagged
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fd64ffd1b61494093e50dfb85adb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetType: red
 --- !u!70 &-8881855399718416399
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

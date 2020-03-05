@@ -53,6 +53,7 @@ public class DualShockerStateMachine : MonoBehaviour
                         case DualShockerStates.DSStates.MOVEPHASE1:
                             {
                                 states.MovePhase1();
+                                states.ColoredAttack();
                                 break;
                             }
                     }
@@ -65,6 +66,11 @@ public class DualShockerStateMachine : MonoBehaviour
                         case DualShockerStates.DSStates.TRANSITION:
                             {
                                 states.Transition();
+                                break;
+                            }
+                        case DualShockerStates.DSStates.MOVEPHASE2:
+                            {
+                                states.MovePhase2();
                                 break;
                             }
                     }

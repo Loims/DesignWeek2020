@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColoredGunScript : MonoBehaviour
+public class DualShockerCores : MonoBehaviour
 {
     private ObjectPooler pooler;
 
@@ -12,27 +12,27 @@ public class ColoredGunScript : MonoBehaviour
 
     [SerializeField] private Projectile.Color color;
 
-    private float shootdelay;
-    private float gunHealth;
+    [SerializeField] private float coreHealth;
 
-    public LayerMask layer;
 
     private void OnEnable()
     {
-        layer = LayerMask.NameToLayer("Projectile");
+        coreHealth = 20f;
         parentStates = transform.parent.parent.GetComponent<DualShockerStates>();
         projectilePrefab = Resources.Load<GameObject>("BasicProjectile");
 
-        if(gameObject.tag == "Red")
+        if (gameObject.tag == "Red")
         {
             color = Projectile.Color.RED;
         }
-        if(gameObject.tag == "Blue")
+        else if (gameObject.tag == "Blue")
         {
             color = Projectile.Color.BLUE;
         }
-
-        gunHealth = 20f;
+        else if(gameObject.tag == "Purple")
+        {
+            color = Projectile.Color.PURPLE;
+        }
     }
 
     private void Start()
@@ -40,36 +40,26 @@ public class ColoredGunScript : MonoBehaviour
         pooler = ObjectPooler.instance;
     }
 
-    public void ShootProjectile()
-    {
-        GameObject projectile = pooler.NewObject(projectilePrefab, transform.position, Quaternion.identity);
-        Projectile comp = projectile.GetComponent<Projectile>();
-
-        comp.InitializeBulletVelocity(Vector3.up * -4f);
-        comp.AssignColor(color);
-        comp.AssignSize(6f);
-    }
-
     public void DamageMe(float damage)
     {
-        gunHealth -= damage;
-        if(gunHealth <=0f)
+        parentStates.Retaliate(color);
+
+        coreHealth -= damage;
+        if (coreHealth <= 0f)
         {
-            parentStates.RemoveFromColoredGuns(this.gameObject);
+            parentStates.RemoveFromCores(this.gameObject);
             Destroy(this.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.LogWarning("CollisionEnter");
         GameObject collisionObj = collision.gameObject;
-        if(collisionObj.layer == 9)
+        if (collisionObj.layer == 9)
         {
-            Debug.LogWarning("THIS FUCKING WORKS");
             if (collisionObj.tag == "Red")
             {
-                if(color == Projectile.Color.RED)
+                if (color == Projectile.Color.RED || color == Projectile.Color.PURPLE)
                 {
                     DamageMe(2f);
                     //Flash white with coroutine
@@ -78,7 +68,7 @@ public class ColoredGunScript : MonoBehaviour
             }
             if (collisionObj.tag == "Blue")
             {
-                if (color == Projectile.Color.BLUE)
+                if (color == Projectile.Color.BLUE || color == Projectile.Color.PURPLE)
                 {
                     DamageMe(2f);
                     //Flash white with coroutine
