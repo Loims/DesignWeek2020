@@ -74,6 +74,11 @@ public class ZarStateMachine : MonoBehaviour
                     states.Retreat();
                     break;
                 }
+            case ZarStates.ZStates.DIE:
+                {
+                    states.Die();
+                    break;
+                }
         }
     }
 

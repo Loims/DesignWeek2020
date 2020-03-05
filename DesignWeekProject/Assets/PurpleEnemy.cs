@@ -36,6 +36,7 @@ public class PurpleEnemy : MonoBehaviour
         }
         //mask sprite for damage
     }
+    
     private void OnDestroy()
     {
         Instantiate(Explosion, this.transform.position, this.transform.rotation);
