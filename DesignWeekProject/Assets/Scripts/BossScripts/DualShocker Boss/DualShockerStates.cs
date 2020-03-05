@@ -28,40 +28,52 @@ public class DualShockerStates : MonoBehaviour
 
     [SerializeField] private GameObject projectile;
 
-    [SerializeField] private GameObject mainGunsParent;
+    [SerializeField] private GameObject mainGunsPhase1Parent;
+    [SerializeField] private GameObject mainGunsPhase2Parent;
     [SerializeField] private GameObject coloredGunsParent;
     [SerializeField] private GameObject coresParent;
-    [SerializeField] private List<GameObject> mainGuns = new List<GameObject>();
+    [SerializeField] private List<GameObject> mainGunsPhase1 = new List<GameObject>();
+    [SerializeField] private List<GameObject> mainGunsPhase2 = new List<GameObject>();
     [SerializeField] private List<GameObject> coloredGuns = new List<GameObject>();
     [SerializeField] private List<GameObject> cores = new List<GameObject>();
     [SerializeField] private List<Transform> movePositions = new List<Transform>();
 
+    private GameObject redGun;
+    private GameObject blueGun;
+
     int randomTransitionPoint;
-    private float phase1Interpolator;
+    private float moveInterpolator;
     private bool moveLeft;
     public bool isFiring = false;
 
     private bool shootPhase1Started = false;
+    private bool isFiringRed = false;
+    private bool isFiringBlue = false;
 
     private void OnEnable()
     {
         pooler = ObjectPooler.instance;
-        shootCorutine = ShootMainGuns(1.5f);
+        shootCorutine = ShootMainGunsPhase1(1f);
 
         projectile = Resources.Load<GameObject>("BasicProjectile");
 
         currentPhase = DSPhases.PHASE1;
         currentState = DSStates.SPAWN;
 
-        mainGunsParent = transform.GetChild(0).gameObject;
-        coloredGunsParent = transform.GetChild(1).gameObject;
-        coresParent = transform.GetChild(2).gameObject;
+        mainGunsPhase1Parent = transform.GetChild(0).gameObject;
+        mainGunsPhase2Parent = transform.GetChild(1).gameObject;
+        coloredGunsParent = transform.GetChild(2).gameObject;
+        coresParent = transform.GetChild(3).gameObject;
 
-        foreach(Transform child in mainGunsParent.transform)
+        foreach(Transform child in mainGunsPhase1Parent.transform)
         {
-            mainGuns.Add(child.gameObject);
+            mainGunsPhase1.Add(child.gameObject);
         }
-        foreach(Transform child in coloredGunsParent.transform)
+        foreach (Transform child in mainGunsPhase2Parent.transform)
+        {
+            mainGunsPhase2.Add(child.gameObject);
+        }
+        foreach (Transform child in coloredGunsParent.transform)
         {
             coloredGuns.Add(child.gameObject);
         }
@@ -73,6 +85,9 @@ public class DualShockerStates : MonoBehaviour
         {
             movePositions.Add(child);
         }
+
+        redGun = coloredGuns[0];
+        blueGun = coloredGuns[1];
     }
 
     private void OnDisable()
@@ -96,6 +111,7 @@ public class DualShockerStates : MonoBehaviour
 
     public void Spawn()
     {
+        coresParent.SetActive(false);
         Vector3 vectorToSpawn = (movePositions[4].transform.position - transform.position);
         float distanceToSpawn = vectorToSpawn.magnitude;
         Debug.DrawLine(transform.position, transform.position + vectorToSpawn, Color.green);
@@ -105,20 +121,18 @@ public class DualShockerStates : MonoBehaviour
         {
             float distanceBetweenPoints = (movePositions[1].position - movePositions[0].position).magnitude;
             float distanceToDualShocker = (transform.position - movePositions[0].position).magnitude;
-            phase1Interpolator = distanceToDualShocker / distanceBetweenPoints;
+            moveInterpolator = distanceToDualShocker / distanceBetweenPoints;
             moveLeft = Random.Range(0, 2) == 0? true : false;
             isFiring = true;
-            Debug.Log("DualShocker stars at interpolation " + phase1Interpolator + " and " + moveLeft);
+            isFiringRed = true;
+            isFiringBlue = true;
+            Debug.Log("DualShocker stars at interpolation " + moveInterpolator + " and " + moveLeft);
             ChangeState(DSStates.MOVEPHASE1);
         }
     }
 
     public void MovePhase1()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            coloredGuns.Clear();
-        }
 
         if(!shootPhase1Started)
         {
@@ -127,21 +141,21 @@ public class DualShockerStates : MonoBehaviour
         }
         if(moveLeft)
         {
-            phase1Interpolator -= (Time.deltaTime / 4);
-            if (phase1Interpolator <= 0f)
+            moveInterpolator -= (Time.deltaTime / 4);
+            if (moveInterpolator <= 0f)
             {
                 moveLeft = false;
             }
         }
         else
         {
-            phase1Interpolator += (Time.deltaTime / 4);
-            if (phase1Interpolator >= 1f)
+            moveInterpolator += (Time.deltaTime / 4);
+            if (moveInterpolator >= 1f)
             {
                 moveLeft = true;
             }
         }
-        transform.position = Vector3.Lerp(movePositions[0].position, movePositions[1].position, phase1Interpolator);
+        transform.position = Vector3.Lerp(movePositions[0].position, movePositions[1].position, moveInterpolator);
 
         if(coloredGuns.Count == 0)
         {
@@ -154,27 +168,143 @@ public class DualShockerStates : MonoBehaviour
         }
     }
 
+    public void ColoredAttack()
+    {
+        if(isFiringRed)
+        {
+            if(coloredGuns.Contains(redGun))
+            {
+                float randomTime = Random.Range(2f, 3f);
+                StartCoroutine(ShootRedGun(randomTime));
+                isFiringRed = false;
+            }
+        }
+
+        if(isFiringBlue)
+        {
+            if(coloredGuns.Contains(blueGun))
+            {
+                float randomTime = Random.Range(2f, 3f);
+                StartCoroutine(ShootBlueGun(randomTime));
+                isFiringBlue = false;
+            }
+        }
+    }
+
     public void Transition()
     {
         Vector3 vectorToTransition = (movePositions[randomTransitionPoint].transform.position - transform.position);
         float distanceToTransition = vectorToTransition.magnitude;
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + vectorToTransition, 2f * Time.deltaTime);
+
+        if(distanceToTransition <= 0.01f)
+        {
+            float distanceBetweenPoints = (movePositions[3].position - movePositions[2].position).magnitude;
+            float distanceToDualShocker = (transform.position - movePositions[2].position).magnitude;
+            moveInterpolator = distanceToDualShocker / distanceBetweenPoints;
+            moveLeft = Random.Range(0, 2) == 0 ? true : false;
+            coresParent.SetActive(true);
+            coloredGunsParent.SetActive(false);
+            mainGunsPhase1Parent.SetActive(false);
+            cores[2].SetActive(false);
+            ChangeState(DSStates.MOVEPHASE2);
+        }
     }
 
-    private IEnumerator ShootMainGuns(float waitTime)
+    public void MovePhase2()
+    {
+        if(cores.Count == 1)
+        {
+            cores[0].SetActive(true);
+        }
+
+        if (moveLeft)
+        {
+            moveInterpolator -= (Time.deltaTime/1.5f);
+            if (moveInterpolator <= 0f)
+            {
+                moveLeft = false;
+            }
+        }
+        else
+        {
+            moveInterpolator += (Time.deltaTime/1.5f);
+            if (moveInterpolator >= 1f)
+            {
+                moveLeft = true;
+            }
+        }
+        transform.position = Vector3.Lerp(movePositions[2].position, movePositions[3].position, moveInterpolator);
+    }
+
+    #region Coroutines
+    private IEnumerator ShootMainGunsPhase1(float waitTime)
     {
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            for (int i = 0; i < mainGuns.Count; i++)
+            for (int i = 0; i < mainGunsPhase1.Count; i++)
             {
-                GameObject newBullet = pooler.NewObject(projectile, mainGuns[i].transform.position, Quaternion.identity);
+                GameObject newBullet = pooler.NewObject(projectile, mainGunsPhase1[i].transform.position, Quaternion.identity);
                 Projectile bulletComp = newBullet.GetComponent<Projectile>();
 
-                bulletComp.InitializeBulletVelocity(mainGuns[i].transform.up * 5f);
+                bulletComp.InitializeBulletVelocity(mainGunsPhase1[i].transform.up * 5f);
                 bulletComp.AssignColor(Projectile.Color.PURPLE);
             }
+        }
+    }
+
+    private IEnumerator ShootRedGun(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        if(redGun == null)
+        {
+            yield break;
+        }
+        redGun.GetComponent<ColoredGunScript>().ShootProjectile();
+        isFiringRed = true;
+        yield break;
+    }
+    private IEnumerator ShootBlueGun(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        if (blueGun == null)
+        {
+            yield break;
+        }
+        blueGun.GetComponent<ColoredGunScript>().ShootProjectile();
+        isFiringBlue = true;
+        yield break;
+    }
+    #endregion
+
+    public void Retaliate(Projectile.Color color)
+    {
+        foreach(GameObject gun in mainGunsPhase2)
+        {
+            GameObject newBullet = pooler.NewObject(projectile, gun.transform.position, Quaternion.identity);
+            Projectile bulletComp = newBullet.GetComponent<Projectile>();
+
+            bulletComp.InitializeBulletVelocity(gun.transform.up * 5f);
+            bulletComp.AssignColor(color);
+        }
+    }
+
+    public void RemoveFromColoredGuns(GameObject gun)
+    {
+        if(coloredGuns.Contains(gun))
+        {
+            coloredGuns.Remove(gun);
+        }
+    }
+
+    public void RemoveFromCores(GameObject core)
+    {
+        if(cores.Contains(core))
+        {
+            Debug.LogWarning("Removed core");
+            cores.Remove(core);
         }
     }
 

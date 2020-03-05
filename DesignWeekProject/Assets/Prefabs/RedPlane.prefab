@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7808880284424867044}
   - component: {fileID: 7808880284424867046}
   - component: {fileID: 7808880284424867047}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: RedPlane
-  m_TagString: Untagged
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
