@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ghostFrames : MonoBehaviour
 {
-
+    private ObjectPooler pooler;
 
     public float ghostDelay;
     private float ghostDelaySeconds;
@@ -13,6 +13,7 @@ public class ghostFrames : MonoBehaviour
     
     void Start()
     {
+        pooler = ObjectPooler.instance;
         ghostDelaySeconds = ghostDelay;
     }
 
@@ -28,7 +29,7 @@ public class ghostFrames : MonoBehaviour
             else
             {
                 //generate a ghost
-                GameObject currentGhost = Instantiate(ghost, transform.position, transform.rotation);
+                GameObject currentGhost = pooler.NewObject(ghost, transform.position, transform.rotation);
                 currentGhost.transform.localScale = transform.localScale;
                 ghostDelaySeconds = ghostDelay;
             }

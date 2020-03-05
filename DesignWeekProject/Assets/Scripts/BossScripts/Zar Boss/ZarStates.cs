@@ -23,9 +23,9 @@ public class ZarStates : MonoBehaviour
     [SerializeField] private int cornerIndex;
 
     [SerializeField] SpriteRenderer m_spriteRenderer;
-    [SerializeField] private Color red;
-    [SerializeField] private Color blue;
-    [SerializeField] private Color purple;
+    [SerializeField] private Sprite red;
+    [SerializeField] private Sprite blue;
+    [SerializeField] private Sprite purple;
 
 
     public Projectile.Color color;
@@ -37,12 +37,12 @@ public class ZarStates : MonoBehaviour
 
     private void OnEnable()
     {
-        red = new Color(1f, 0f, 0f, 1f);
-        blue = new Color(0f, 0.14f, 1f, 1f);
-        purple = new Color(0.74f, 0f, 1f, 1f);
+        red = Resources.Load<Sprite>("boss_red");
+        blue = Resources.Load<Sprite>("boss_blue");
+        purple = Resources.Load<Sprite>("boss_purple");
 
         m_spriteRenderer = GetComponent<SpriteRenderer>();
-        m_spriteRenderer.color = purple;
+        m_spriteRenderer.sprite = purple;
         color = Projectile.Color.PURPLE;
 
         points = new List<GameObject>();
@@ -134,11 +134,11 @@ public class ZarStates : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         if(color == Projectile.Color.RED)
         {
-            m_spriteRenderer.color = red;
+            m_spriteRenderer.sprite = red;
         }
         else if(color == Projectile.Color.BLUE)
         {
-            m_spriteRenderer.color = blue;
+            m_spriteRenderer.sprite = blue;
         }
         yield return new WaitForSeconds(waitTime);
         GetNewCornerIndex();
