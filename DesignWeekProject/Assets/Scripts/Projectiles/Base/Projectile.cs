@@ -13,10 +13,12 @@ public class Projectile : MonoBehaviour
     }
 
     #region Variables
-    [Header("Color Materials (Test Only)")]
-    [SerializeField] protected Material redMat;
-    [SerializeField] protected Material blueMat;
-    [SerializeField] protected Material purpleMat;
+    [Header("Sprites")]
+    [SerializeField] protected Sprite redShotStar;
+    [SerializeField] protected Sprite blueShotStar;
+    [SerializeField] protected Sprite redShotOrb;
+    [SerializeField] protected Sprite blueShotOrb;
+    [SerializeField] protected Sprite purpleShotOrb;
     
     [Space]
     [Header("Object Pooler")]
@@ -35,9 +37,11 @@ public class Projectile : MonoBehaviour
         pooler = ObjectPooler.instance;
         rb2d = GetComponent<Rigidbody2D>();
 
-        redMat = Resources.Load<Material>("Red");
-        blueMat = Resources.Load<Material>("Blue");
-        purpleMat = Resources.Load<Material>("Purple");
+        redShotStar = Resources.Load<Sprite>("shot_redStar");
+        blueShotStar = Resources.Load<Sprite>("shot_blueStar");
+        redShotOrb = Resources.Load<Sprite>("shot_redSphere");
+        blueShotOrb = Resources.Load<Sprite>("shot_blueSphere");
+        purpleShotOrb = Resources.Load<Sprite>("shot_purpleSphere");
     }
 
     protected virtual void OnEnable()
@@ -81,18 +85,37 @@ public class Projectile : MonoBehaviour
     {
         projectileColor = color;
 
-        Renderer renderer = GetComponent<Renderer>();
-        if (color == Color.RED)
+    }
+
+    public void AssignSprite(string sprite)
+    {
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+
+        if (sprite == "Star")
         {
-            renderer.material = redMat;
+            if (projectileColor == Color.RED)
+            {
+                renderer.sprite = redShotStar;
+            }
+            else if(projectileColor == Color.BLUE)
+            {
+                renderer.sprite = blueShotStar;
+            }
         }
-        else if (color == Color.BLUE)
+        else if (sprite == "Orb")
         {
-            renderer.material = blueMat;
-        }
-        else if (color == Color.PURPLE)
-        {
-            renderer.material = purpleMat;
+            if (projectileColor == Color.RED)
+            {
+                renderer.sprite = redShotOrb;
+            }
+            else if(projectileColor == Color.BLUE)
+            {
+                renderer.sprite = blueShotOrb;
+            }
+            else if(projectileColor == Color.PURPLE)
+            {
+                renderer.sprite = purpleShotOrb;
+            }
         }
     }
 
@@ -119,17 +142,15 @@ public class Projectile : MonoBehaviour
         {
             if(collision.gameObject.tag == "Red")
             {
-                if(projectileColor == Color.RED)
+                if(projectileColor == Color.RED || projectileColor == Color.PURPLE)
                 {
-                    //Damage logic
                     pooler.ReturnToPool(this.gameObject);
                 }
             }
             else if(collision.gameObject.tag == "Blue")
             {
-                if(projectileColor == Color.BLUE)
+                if(projectileColor == Color.BLUE || projectileColor == Color.PURPLE)
                 {
-                    //Damage logic
                     pooler.ReturnToPool(this.gameObject);
                 }
             }

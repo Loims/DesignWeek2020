@@ -58,6 +58,8 @@ public class enemyShooter : MonoBehaviour
             Projectile component = spawnedProjectile.GetComponent<Projectile>();
             component.InitializeBulletVelocity(transform.up * force);
             component.AssignColor(color);
+            component.AssignSprite("Star");
+            component.AssignSize(0.5f);
 
 
             //spawnedProjectile.GetComponent<Rigidbody2D>().AddForce(transform.up * force, ForceMode2D.Impulse);
