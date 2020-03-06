@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public static int player1Score = 0;
     public static int player2Score = 0;
     public static Player instance = null;
+    public bool boss = false;
     private void Awake()
     {
         if(instance==null)

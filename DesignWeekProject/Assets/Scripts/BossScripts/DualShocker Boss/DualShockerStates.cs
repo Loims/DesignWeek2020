@@ -241,6 +241,7 @@ public class DualShockerStates : MonoBehaviour
 
     public void Die()
     {
+        Player.instance.boss = false;
         StopAllCoroutines();
     }
 

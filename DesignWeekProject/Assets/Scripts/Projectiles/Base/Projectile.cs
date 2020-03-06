@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] protected Rigidbody2D rb2d;
     [SerializeField] protected float lifetime = 5f;
-    [SerializeField] protected Color projectileColor;
+    [SerializeField] public Color projectileColor;
     #endregion
 
     private void Awake()
@@ -140,7 +140,17 @@ public class Projectile : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            if(collision.gameObject.name=="RedPlane" && projectileColor==Projectile.Color.RED)
+            {
+                Player.instance.DecreasePlayer1Health(5);
+            }
+            else if (collision.gameObject.name == "BluePlane" && projectileColor == Projectile.Color.BLUE)
+            {
+                Player.instance.DecreasePlayer1Health(5);
+            }
             pooler.ReturnToPool(this.gameObject);
+            Debug.Log(Player.instance.ShowPlayer1Health());
+            
         }
     }
 }

@@ -129,7 +129,7 @@ public class ZarStates : MonoBehaviour
 
     public void Die()
     {
-
+        Player.instance.boss = false;
         StopAllCoroutines();
         GameObject boss=Instantiate(bossDeath, transform.position, transform.rotation);
         Destroy(boss, 2f);

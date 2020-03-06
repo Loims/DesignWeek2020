@@ -34,5 +34,6 @@ public class RedPlayercontrol : MonoBehaviour
         Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up* bulletVelocity);
         
     }
-    
+   
+
 }

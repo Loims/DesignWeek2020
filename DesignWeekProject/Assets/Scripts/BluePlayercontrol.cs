@@ -33,4 +33,11 @@ public class BluePlayercontrol : MonoBehaviour
         Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * bulletVelocity);
         
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.GetComponent<Projectile>().projectileColor==Projectile.Color.BLUE)
+        {
+            Player.instance.DecreasePlayer1Health(5);
+        }
+    }
 }
