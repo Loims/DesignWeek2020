@@ -19,7 +19,7 @@ public class ZarStateMachine : MonoBehaviour
     private void OnEnable()
     {
         states = GetComponent<ZarStates>();
-        health = 100f;
+        health = 10f;
         states.currentState = ZarStates.ZStates.SPAWN;
         target = GameObject.Find("PFB_Player");
     }

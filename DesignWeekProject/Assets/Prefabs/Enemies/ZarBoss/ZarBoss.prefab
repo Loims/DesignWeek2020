@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e4d8b65dcdb694e87c55d6c9cc5771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossDeath: {fileID: 6514088074943334946, guid: 687da01b9acb73c40a6abbc821ad52f3,
+    type: 3}
   currentState: 0
   gunGimbal: {fileID: 0}
   cornerParent: {fileID: 0}

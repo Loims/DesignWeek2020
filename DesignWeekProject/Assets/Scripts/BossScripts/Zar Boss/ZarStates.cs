@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZarStates : MonoBehaviour
 {
+    public GameObject bossDeath;
     #region Variables
     public enum ZStates
     {
@@ -128,7 +129,10 @@ public class ZarStates : MonoBehaviour
 
     public void Die()
     {
+
         StopAllCoroutines();
+        GameObject boss=Instantiate(bossDeath, transform.position, transform.rotation);
+        Destroy(boss, 2f);
     }
 
     private void GetNewCornerIndex()
