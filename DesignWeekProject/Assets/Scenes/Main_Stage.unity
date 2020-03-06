@@ -198,7 +198,6 @@ MonoBehaviour:
   scrapMetal: {fileID: 0}
   gun: {fileID: 77055676}
   force: -4.29
-  bulletSpeed: 0.12
   color: 0
 --- !u!1 &211178467
 GameObject:
@@ -555,7 +554,6 @@ MonoBehaviour:
   scrapMetal: {fileID: 0}
   gun: {fileID: 786815927}
   force: -4.29
-  bulletSpeed: 0.12
   color: 0
 --- !u!114 &786815930
 MonoBehaviour:
@@ -933,7 +931,6 @@ MonoBehaviour:
   scrapMetal: {fileID: 0}
   gun: {fileID: 1637300646}
   force: -4.29
-  bulletSpeed: 0.12
   color: 0
 --- !u!114 &1637300649
 MonoBehaviour:
@@ -1487,7 +1484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718775201475221809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 8.65, z: 0}
+  m_LocalPosition: {x: 0.27, y: 7.5, z: 0}
   m_LocalScale: {x: 4.1645994, y: 4.1645994, z: 4.1645994}
   m_Children:
   - {fileID: 1848797926}
