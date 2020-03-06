@@ -57,7 +57,7 @@ public class enemyShooter : MonoBehaviour
     {
         if (canShoot == true)
         {
-            GameObject spawnedProjectile = pooler.NewObject(projectilePrefab, gun.transform.position, Quaternion.identity);
+            GameObject spawnedProjectile = pooler.NewObject(projectilePrefab, this.transform.position, Quaternion.identity);
 
             Projectile component = spawnedProjectile.GetComponent<Projectile>();
             component.InitializeBulletVelocity(transform.up * force);

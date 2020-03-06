@@ -13,7 +13,7 @@ public class BlueEnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(this.gameObject, 3);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

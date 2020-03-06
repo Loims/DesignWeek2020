@@ -73,4 +73,8 @@ public class Player : MonoBehaviour
     {
         return (player1Score + player2Score);
     }
+    public void Restart()
+    {
+        player1Health = 100;
+    }
 }

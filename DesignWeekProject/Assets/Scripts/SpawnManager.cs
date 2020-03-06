@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
         }
         if(Player.instance.ShowPlayer1Health()<0.0f)
         {
-            SceneManager.LoadScene("EndScene");
+            SceneManager.LoadScene("EndGame");
         }
     }
 }
