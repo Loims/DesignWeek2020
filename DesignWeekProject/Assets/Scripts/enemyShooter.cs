@@ -16,7 +16,8 @@ public class enemyShooter : MonoBehaviour
     public float bulletSpeed;
 
     public Projectile.Color color;
-
+    AudioSource deathSFX;
+    
     private void OnEnable()
     {
         pooler = ObjectPooler.instance;
@@ -36,7 +37,7 @@ public class enemyShooter : MonoBehaviour
 
     void Start()
     {
-        
+        deathSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -75,6 +76,7 @@ public class enemyShooter : MonoBehaviour
 
     private void OnDestroy()
     {
+        deathSFX.Play();
         GameObject explosionClone = Instantiate(explosion, this.transform.position, Quaternion.identity);
         Destroy(explosionClone, 2f);
         GameObject scrapMetalClone = Instantiate(scrapMetal, this.transform.position, Quaternion.identity);

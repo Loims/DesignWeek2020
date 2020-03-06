@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ZarStates : MonoBehaviour
 {
+
+
+    AudioSource bossDeathSFX;
     public GameObject bossDeath;
     #region Variables
     public enum ZStates
@@ -41,6 +44,7 @@ public class ZarStates : MonoBehaviour
 
     private void OnEnable()
     {
+        bossDeathSFX = GetComponent<AudioSource>();
         red = Resources.Load<Sprite>("boss_red");
         blue = Resources.Load<Sprite>("boss_blue");
         purple = Resources.Load<Sprite>("boss_purple");
@@ -133,6 +137,7 @@ public class ZarStates : MonoBehaviour
         StopAllCoroutines();
         GameObject boss=Instantiate(bossDeath, transform.position, transform.rotation);
         Destroy(boss, 2f);
+        bossDeathSFX.Play();
     }
 
     private void GetNewCornerIndex()

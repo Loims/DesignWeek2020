@@ -9,9 +9,15 @@ public class RedPlayercontrol : MonoBehaviour
     public float bulletVelocity = 500;
     private Transform plane;
     private GameObject Bullet;
+
+    bool muzzle;
+    public GameObject muzzleFlash;
+    float muzzleTimer = 0;
+    AudioSource fireSFX;
     void Start()
     {
         plane = GetComponent<Transform>();
+        fireSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,8 +31,22 @@ public class RedPlayercontrol : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             Fire();
+            muzzle = true;
+            fireSFX.Play();
         }
         Destroy(Bullet, 1);
+
+        if (muzzle)
+        {
+            muzzleFlash.SetActive(true);
+            muzzleTimer += Time.deltaTime;
+            if (muzzleTimer >= 0.07)
+            {
+                muzzleFlash.SetActive(false);
+                muzzleTimer = 0;
+                muzzle = false;
+            }
+        }
     }
     private void Fire()
     {
