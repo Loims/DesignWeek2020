@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 6256267743268906378}
   - component: {fileID: 6256267743268906380}
   - component: {fileID: 422109354}
-  m_Layer: 0
+  - component: {fileID: 1888080682}
+  - component: {fileID: 1888080681}
+  m_Layer: 10
   m_Name: ZarBoss
   m_TagString: Purple
   m_Icon: {fileID: 0}
@@ -125,7 +127,7 @@ MonoBehaviour:
   purple: {fileID: 0}
   white: {fileID: 0}
   color: 0
-  speed: 20
+  speed: 10
   cornerIncrement: 0
   isShooting: 0
   invuln: 1
@@ -144,6 +146,35 @@ MonoBehaviour:
   ghostDelay: 0.2
   ghost: {fileID: 7453054440806905738, guid: 0ab42cebc8570204795675700baf804a, type: 3}
   makeGhost: 1
+--- !u!58 &1888080682
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256267743268906383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
+--- !u!114 &1888080681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256267743268906383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b472e4f5420e34fa50517c8a42c542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &6857610458826475330
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +186,7 @@ GameObject:
   - component: {fileID: 6857610458826475331}
   - component: {fileID: 6857610458826475328}
   - component: {fileID: 6857610458826475329}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +252,7 @@ GameObject:
   - component: {fileID: 6857610458988754243}
   - component: {fileID: 6857610458988754240}
   - component: {fileID: 6857610458988754241}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +318,7 @@ GameObject:
   - component: {fileID: 6857610459246215115}
   - component: {fileID: 6857610459246215112}
   - component: {fileID: 6857610459246215113}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6857610459294406232}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GunGimbal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +418,7 @@ GameObject:
   - component: {fileID: 6857610460177618196}
   - component: {fileID: 6857610460177618197}
   - component: {fileID: 6857610460177618194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
