@@ -24,5 +24,9 @@ public class RedEnemyBullet : MonoBehaviour
             Destroy(this.gameObject);
             
         }
+        else if (collision.gameObject.GetComponent<BluePlayercontrol>())
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

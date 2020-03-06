@@ -61,6 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 2881255849737093749}
   force: -4.29
   bulletSpeed: 0.12
@@ -141,6 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 2881255850380009342}
   force: -4.29
   bulletSpeed: 0.12
@@ -205,6 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 2881255851297373551}
   force: -4.29
   bulletSpeed: 0.12
@@ -323,6 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fbae8eb58e5a744b4bfdb9f4735d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 100
+  Explosion: {fileID: 0}
   damage: 50
 --- !u!114 &6292076926561019892
 MonoBehaviour:
@@ -331,12 +339,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2881255851299643045}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00439de2957be824ba084a6ba9b56b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 0}
   force: 0
   bulletSpeed: 0
@@ -354,7 +364,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.120698094, y: 0.26222056}
+  m_Offset: {x: 0.40837032, y: 0.0022369772}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -365,7 +375,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.6917927, y: 4.475287}
+  m_Size: {x: 0.4307698, y: 0.31692556}
   m_EdgeRadius: 0
 --- !u!114 &2881255851299643046
 MonoBehaviour:

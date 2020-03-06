@@ -20,9 +20,13 @@ public class BlueEnemyBullet : MonoBehaviour
         if (collision.gameObject.GetComponent<BluePlayercontrol>())
         {
             Player.instance.DecreasePlayer2Health(5);
-            
+
             Destroy(this.gameObject);
 
+        }
+        else if (collision.gameObject.GetComponent<RedPlayercontrol>())
+        {
+            Destroy(this.gameObject);
         }
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4227359312314752025}
   - component: {fileID: 5918562528570106966}
   - component: {fileID: 7410734797813163486}
+  - component: {fileID: 6696345195349354284}
   m_Layer: 0
   m_Name: Blue_Pathfollow_enemy
   m_TagString: Blue
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7102161716479121243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5400403, y: 1.6908321, z: 0}
-  m_LocalScale: {x: 0.20293376, y: 0.20293376, z: 0.20293376}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7102161716958781015}
   m_Father: {fileID: 0}
@@ -74,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d56cdfcbb2908940aa0736b340f1ec8, type: 3}
+  m_Sprite: {fileID: 8382278127944663144, guid: d1612ab78953b2f468cbb6a116f5d93f,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 7102161716958781015}
   force: -3
   bulletSpeed: 0.45
@@ -115,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2062a2c618bf2bf46ba890595c8948fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScrapMetal: {fileID: 0}
+  Explosion: {fileID: 0}
   type: blue
 --- !u!114 &5918562528570106966
 MonoBehaviour:
@@ -142,19 +148,38 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1532135, y: 0.03064245}
+  m_Offset: {x: -0.05260089, y: -0.015565574}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.83, y: 6.77}
+    oldSize: {x: 1.76, y: 0.96}
     newSize: {x: 6.83, y: 6.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5818539, y: 4.0121307}
+  m_Size: {x: 0.47661215, y: 0.30519152}
   m_EdgeRadius: 0
+--- !u!95 &6696345195349354284
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7102161716479121243}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 552d062f8580cf9408fcae51b0934a7d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7102161716958781014
 GameObject:
   m_ObjectHideFlags: 0

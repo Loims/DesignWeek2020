@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5402724783993152000}
   - component: {fileID: 409691908715147066}
   - component: {fileID: 653228238324127044}
+  - component: {fileID: 6120428080652666112}
   m_Layer: 0
   m_Name: Red_Pathfollow_enemy2
   m_TagString: Red
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 653228238324127041}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.575522, y: 1.4698093, z: 0}
-  m_LocalScale: {x: 0.235, y: 0.235, z: 0.235}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 653228237746843042}
   m_Father: {fileID: 0}
@@ -104,7 +105,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25c43e38a8d6ab8439df5116fa1949fe, type: 3}
+  m_Sprite: {fileID: -6109733550399509263, guid: c769e555a75f3ea4a8a33d3f07a89855,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,6 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 653228237746843042}
   force: -3
   bulletSpeed: 1
@@ -146,18 +150,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12238693, y: 0.10490453}
+  m_Offset: {x: 0.40837032, y: 0.0022369772}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.83, y: 6.77}
+    oldSize: {x: 1.76, y: 0.96}
     newSize: {x: 6.83, y: 6.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4381003, y: 3.8326828}
+  m_Size: {x: 0.4307698, y: 0.31692556}
   m_EdgeRadius: 0
 --- !u!114 &409691908715147066
 MonoBehaviour:
@@ -185,3 +189,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedModifier: 0.3
+--- !u!95 &6120428080652666112
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653228238324127041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df3a4281976fa0249b47ef5214085f7d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

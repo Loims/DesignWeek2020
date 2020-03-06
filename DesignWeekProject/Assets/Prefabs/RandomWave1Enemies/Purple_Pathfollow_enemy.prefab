@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fbae8eb58e5a744b4bfdb9f4735d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 100
+  Explosion: {fileID: 0}
   damage: 50
 --- !u!114 &8513808800520139797
 MonoBehaviour:
@@ -121,12 +123,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4719069236126756483}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00439de2957be824ba084a6ba9b56b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 0}
   force: 0
   bulletSpeed: 0
@@ -203,6 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 4719069236128664905}
   force: -4.29
   bulletSpeed: 0.12
@@ -282,6 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 4719069236715893331}
   force: -4.29
   bulletSpeed: 0.12
@@ -362,6 +370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3832861736426651033, guid: 46797ecbf53cfa3408d791bb53757236,
     type: 3}
+  explosion: {fileID: 0}
+  scrapMetal: {fileID: 0}
   gun: {fileID: 4719069237415423832}
   force: -4.29
   bulletSpeed: 0.12
