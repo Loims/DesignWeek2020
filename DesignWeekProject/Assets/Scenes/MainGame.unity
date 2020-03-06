@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed539283a26235a4ca122f729a4a565a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreLimit: 2000
+  scoreLimit: 1500
   BossSpawner:
   - {fileID: 6256267743268906383, guid: 69c189a1fa321c34c858274f2f531b5b, type: 3}
   - {fileID: 599046902824423288, guid: 2968606c662fa3f47a08dc17767d6a1b, type: 3}
