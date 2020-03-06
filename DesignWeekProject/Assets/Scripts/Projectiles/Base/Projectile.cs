@@ -140,20 +140,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if(collision.gameObject.tag == "Red")
-            {
-                if(projectileColor == Color.RED || projectileColor == Color.PURPLE)
-                {
-                    pooler.ReturnToPool(this.gameObject);
-                }
-            }
-            else if(collision.gameObject.tag == "Blue")
-            {
-                if(projectileColor == Color.BLUE || projectileColor == Color.PURPLE)
-                {
-                    pooler.ReturnToPool(this.gameObject);
-                }
-            }
+            pooler.ReturnToPool(this.gameObject);
         }
     }
 }
