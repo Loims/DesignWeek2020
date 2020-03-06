@@ -53,13 +53,16 @@ public class GunScript : MonoBehaviour
             Projectile projectileComp = newProjectile.GetComponent<Projectile>();
 
             projectileComp.InitializeBulletVelocity(transform.up * 10f);
+            projectileComp.AssignSize(0.5f);
             if (color == Projectile.Color.RED)
             {
                 projectileComp.AssignColor(Projectile.Color.BLUE);
+                projectileComp.AssignSprite("Orb");
             }
             else if (color == Projectile.Color.BLUE)
             {
                 projectileComp.AssignColor(Projectile.Color.RED);
+                projectileComp.AssignSprite("Orb");
             }
         }
     }

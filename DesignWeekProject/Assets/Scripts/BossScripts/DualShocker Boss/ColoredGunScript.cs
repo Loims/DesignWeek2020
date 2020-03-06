@@ -47,7 +47,8 @@ public class ColoredGunScript : MonoBehaviour
 
         comp.InitializeBulletVelocity(Vector3.up * -4f);
         comp.AssignColor(color);
-        comp.AssignSize(6f);
+        comp.AssignSprite("Orb");
+        //comp.AssignSize(1f);
     }
 
     public void DamageMe(float damage)

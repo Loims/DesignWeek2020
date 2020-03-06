@@ -251,6 +251,7 @@ public class DualShockerStates : MonoBehaviour
 
                 bulletComp.InitializeBulletVelocity(mainGunsPhase1[i].transform.up * 5f);
                 bulletComp.AssignColor(Projectile.Color.PURPLE);
+                bulletComp.AssignSprite("Orb");
             }
         }
     }
@@ -288,6 +289,7 @@ public class DualShockerStates : MonoBehaviour
 
             bulletComp.InitializeBulletVelocity(gun.transform.up * 5f);
             bulletComp.AssignColor(color);
+            bulletComp.AssignSprite("Orb");
         }
     }
 

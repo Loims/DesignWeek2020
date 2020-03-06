@@ -18,6 +18,8 @@ TagManager:
   - 
   - Player
   - Projectile
+  - Boss
+  - 
   - player1
   - player2
   - 
