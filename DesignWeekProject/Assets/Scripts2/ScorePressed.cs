@@ -6,6 +6,8 @@ public class ScorePressed : MonoBehaviour
 {
     public static bool scores;
     public static bool back2;
+    public GameObject Highscores;
+    public GameObject MainMenu;
 
     void Start()
     {
@@ -15,13 +17,15 @@ public class ScorePressed : MonoBehaviour
 
     public void ScoresClicked()
     {
-        scores = true;
-        back2 = false;
+        Highscores.SetActive(true);
+
+        MainMenu.SetActive(false);
     }
 
     public void BackClicked2()
     {
-        back2 = true;
-        scores = false;
+        Highscores.SetActive(false);
+        MainMenu.SetActive(true);
+
     }
 }

@@ -5,19 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/RandomCurve.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main_Menu.unity
     guid: d58e217c862e92d43bcae9098150d8d7
-  - enabled: 0
-    path: Assets/Scenes/Main_Stage.unity
-    guid: 94b53258686155840ade46afcd56bd29
-  - enabled: 0
-    path: Assets/Scenes/PlayerControl.unity
-    guid: 7754e23de6b33014480e86dd1ae39fb4
   - enabled: 1
-    path: Assets/Scenes/enemySpawner.unity
-    guid: d82bd4a5b14aa8048bf76a27f3b3e37f
+    path: Assets/Scenes/MainGame.unity
+    guid: 1fbee000129f8f948af18390276dd17b
   m_configObjects: {}

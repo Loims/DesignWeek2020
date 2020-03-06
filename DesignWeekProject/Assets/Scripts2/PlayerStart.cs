@@ -18,7 +18,7 @@ public class PlayerStart : MonoBehaviour
 
         if (this.name == "2P Button")
         {
-            SceneManager.LoadScene("Main_Stage");
+            SceneManager.LoadScene("MainGame");
             playerCount = 2;
         }
     }

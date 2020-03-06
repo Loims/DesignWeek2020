@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class SpawnManager : MonoBehaviour
         }
         if(Player.instance.ShowPlayer1Health()<0.0f)
         {
-            
+            SceneManager.LoadScene("EndScene");
         }
     }
 }

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public static int player2Score = 0;
     public static Player instance = null;
     public bool boss = false;
+    public float bulletSpeed = 1f;
     private void Awake()
     {
         if(instance==null)

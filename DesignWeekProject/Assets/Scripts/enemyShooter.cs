@@ -13,7 +13,7 @@ public class enemyShooter : MonoBehaviour
     private bool canShoot = true;
     [SerializeField]
     private float force;
-    public float bulletSpeed;
+    float bulletSpeed;
 
     public Projectile.Color color;
     AudioSource deathSFX;
@@ -38,6 +38,9 @@ public class enemyShooter : MonoBehaviour
     void Start()
     {
         deathSFX = GetComponent<AudioSource>();
+        bulletSpeed = Player.instance.bulletSpeed;
+        force = -3;
+        bulletSpeed = 1;
     }
 
     // Update is called once per frame
