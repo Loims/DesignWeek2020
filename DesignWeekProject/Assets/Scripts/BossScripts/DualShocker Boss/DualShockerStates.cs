@@ -16,7 +16,8 @@ public class DualShockerStates : MonoBehaviour
         SPAWN,
         MOVEPHASE1,
         TRANSITION,
-        MOVEPHASE2
+        MOVEPHASE2, 
+        DIE
     }
 
     [SerializeField] private ObjectPooler pooler;
@@ -238,6 +239,11 @@ public class DualShockerStates : MonoBehaviour
         transform.position = Vector3.Lerp(movePositions[2].position, movePositions[3].position, moveInterpolator);
     }
 
+    public void Die()
+    {
+        StopAllCoroutines();
+    }
+
     #region Coroutines
     private IEnumerator ShootMainGunsPhase1(float waitTime)
     {
@@ -251,6 +257,8 @@ public class DualShockerStates : MonoBehaviour
 
                 bulletComp.InitializeBulletVelocity(mainGunsPhase1[i].transform.up * 5f);
                 bulletComp.AssignColor(Projectile.Color.PURPLE);
+                bulletComp.AssignSize(0.5f);
+                bulletComp.AssignSprite("Orb");
             }
         }
     }
@@ -277,6 +285,26 @@ public class DualShockerStates : MonoBehaviour
         isFiringBlue = true;
         yield break;
     }
+
+    //private IEnumerator Flash(float waitTime)
+    //{
+    //    m_spriteRenderer.sprite = white;
+    //    yield return new WaitForSeconds(waitTime);
+
+    //    if (color == Projectile.Color.RED)
+    //    {
+    //        m_spriteRenderer.sprite = red;
+    //    }
+    //    else if (color == Projectile.Color.BLUE)
+    //    {
+    //        m_spriteRenderer.sprite = blue;
+    //    }
+    //    else if (color == Projectile.Color.PURPLE)
+    //    {
+    //        m_spriteRenderer.sprite = purple;
+    //    }
+    //    yield break;
+    //}
     #endregion
 
     public void Retaliate(Projectile.Color color)
@@ -288,6 +316,8 @@ public class DualShockerStates : MonoBehaviour
 
             bulletComp.InitializeBulletVelocity(gun.transform.up * 5f);
             bulletComp.AssignColor(color);
+            bulletComp.AssignSize(0.5f);
+            bulletComp.AssignSprite("Orb");
         }
     }
 
@@ -306,6 +336,11 @@ public class DualShockerStates : MonoBehaviour
             Debug.LogWarning("Removed core");
             cores.Remove(core);
         }
+    }
+
+    public void StartFlash()
+    {
+        //StartCoroutine(Flash(0.1f));
     }
 
     public void ChangePhase(DSPhases newPhase) //Changes phase

@@ -73,35 +73,15 @@ public class DualShockerStateMachine : MonoBehaviour
                                 states.MovePhase2();
                                 break;
                             }
+                        case DualShockerStates.DSStates.DIE:
+                            {
+                                states.Die();
+                                break;
+                            }
                     }
                     break;
                 }
-                //case ZarStates.ZStates.COLORIZE:
-                //    {
-                //        states.Colorize();
-                //        break;
-                //    }
-                //case ZarStates.ZStates.MOVE:
-                //    {
-                //        states.Move();
-                //        break;
-                //    }
-                //case ZarStates.ZStates.ATTACK:
-                //    {
-                //        states.Attack();
-                //        break;
-                //    }
-                //case ZarStates.ZStates.RETREAT:
-                //    {
-                //        states.Retreat();
-                //        break;
-                //    }
         }
-    }
-
-    private void Kill()
-    {
-        throw new NotImplementedException();
     }
 }
 

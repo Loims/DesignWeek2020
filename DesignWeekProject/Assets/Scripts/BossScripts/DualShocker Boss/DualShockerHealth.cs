@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class DualShockerHealth : MonoBehaviour
 {
+    private DualShockerStates statesParent;
+
     private float health;
 
     private void OnEnable()
     {
-        health = 30f;
+        statesParent = GetComponent<DualShockerStates>();
+        health = 50f;
     }
 
     public void TakeDamage(float damage)
@@ -16,7 +19,15 @@ public class DualShockerHealth : MonoBehaviour
         health -= damage;
         if(health <= 0f)
         {
-            Destroy(this.gameObject);
+            statesParent.ChangeState(DualShockerStates.DSStates.DIE);
+            StartCoroutine(DeathAnimation(0.1f)); ;
         }
+    }
+
+    private IEnumerator DeathAnimation(float waitTime)
+    {
+        //Start animation here
+        yield return new WaitForSeconds(waitTime);
+        Destroy(this.gameObject);
     }
 }

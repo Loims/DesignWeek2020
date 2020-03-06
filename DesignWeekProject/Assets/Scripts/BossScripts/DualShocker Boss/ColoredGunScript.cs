@@ -7,8 +7,14 @@ public class ColoredGunScript : MonoBehaviour
     private ObjectPooler pooler;
 
     private GameObject projectilePrefab;
+    private SpriteRenderer spriteRenderer;
 
     private DualShockerStates parentStates;
+
+    private Sprite redGun;
+    private Sprite blueGun;
+    private Sprite redFlash;
+    private Sprite blueFlash;
 
     [SerializeField] private Projectile.Color color;
 
@@ -19,6 +25,13 @@ public class ColoredGunScript : MonoBehaviour
 
     private void OnEnable()
     {
+        redGun = Resources.Load<Sprite>("boss_gun_red");
+        blueGun = Resources.Load<Sprite>("boss_gun_blue");
+        redFlash = Resources.Load<Sprite>("boss_gun_red_WHITE");
+        blueFlash = Resources.Load<Sprite>("boss_gun_blue_WHITE");
+
+        spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
         layer = LayerMask.NameToLayer("Projectile");
         parentStates = transform.parent.parent.GetComponent<DualShockerStates>();
         projectilePrefab = Resources.Load<GameObject>("BasicProjectile");
@@ -47,7 +60,8 @@ public class ColoredGunScript : MonoBehaviour
 
         comp.InitializeBulletVelocity(Vector3.up * -4f);
         comp.AssignColor(color);
-        comp.AssignSize(6f);
+        comp.AssignSprite("Orb");
+        comp.AssignSize(1f);
     }
 
     public void DamageMe(float damage)
@@ -58,6 +72,22 @@ public class ColoredGunScript : MonoBehaviour
             parentStates.RemoveFromColoredGuns(this.gameObject);
             Destroy(this.gameObject);
         }
+    }
+
+    private IEnumerator FlashRED(float waitTime)
+    {
+        spriteRenderer.sprite = redFlash;
+        yield return new WaitForSeconds(waitTime);
+        spriteRenderer.sprite = redGun;
+        yield break;
+    }
+
+    private IEnumerator FlashBLUE(float waitTime)
+    {
+        spriteRenderer.sprite = blueFlash;
+        yield return new WaitForSeconds(waitTime);
+        spriteRenderer.sprite = blueGun;
+        yield break;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,8 +101,8 @@ public class ColoredGunScript : MonoBehaviour
             {
                 if(color == Projectile.Color.RED)
                 {
-                    DamageMe(2f);
-                    //Flash white with coroutine
+                    DamageMe(1f);
+                    StartCoroutine(FlashRED(0.1f));
                     Destroy(collisionObj);
                 }
             }
@@ -80,8 +110,8 @@ public class ColoredGunScript : MonoBehaviour
             {
                 if (color == Projectile.Color.BLUE)
                 {
-                    DamageMe(2f);
-                    //Flash white with coroutine
+                    DamageMe(1f);
+                    StartCoroutine(FlashBLUE(0.1f));
                     Destroy(collisionObj);
                 }
             }
